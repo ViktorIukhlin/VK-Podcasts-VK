@@ -1,18 +1,19 @@
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
-import { platform, IOS, Banner } from "@vkontakte/vkui";
-import Panel from "@vkontakte/vkui/dist/components/Panel/Panel";
-import Group from "@vkontakte/vkui/dist/components/Group/Group";
-import PanelHeader from "@vkontakte/vkui/dist/components/PanelHeader/PanelHeader";
-import PanelHeaderButton from "@vkontakte/vkui/dist/components/PanelHeaderButton/PanelHeaderButton";
+import { platform, IOS, Banner, FixedLayout, Button, FormLayout, Div, PanelHeader, Panel, PanelHeaderButton, File, Input, Textarea, Card, Placeholder } from "@vkontakte/vkui";
 import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
 import Icon24Back from "@vkontakte/icons/dist/24/back";
-import Icon28TargetOutline from "@vkontakte/icons/dist/28/target_outline";
-import Icon28CalendarOutline from "@vkontakte/icons/dist/28/calendar_outline";
-
+import Icon32PictureOutline from '@vkontakte/icons/dist/32/picture_outline';
+import Icon24DismissOverlay from '@vkontakte/icons/dist/24/dismiss_overlay';
+import './Addition.css';
 const osName = platform();
 
-const Addition = (props) => (
+const Addition = (props) => {
+  const [cover, setCover] = useState(null);
+  const [podcastName, setPodcastName] = useState("");
+  const [description, setDescription] = useState("");
+
+  return(
   <Panel id={props.id}>
     <PanelHeader
       left={
@@ -23,35 +24,77 @@ const Addition = (props) => (
     >
       Новый подкаст
     </PanelHeader>
-    <Group
-      style={{
-        height: "calc(100vh - 57px)",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Group style={{ width: "100%" }}>
-        <Banner
-          header="Целевой сбор"
-          asideMode="expand"
-          before={<Icon28TargetOutline fill="var(--accent)" />}
-          subheader="Когда есть определённая цель"
-          onClick={props.go}
-          data-to="target"
-        />
-        <Banner
-          header="Регулярный сбор"
-          asideMode="expand"
-          before={<Icon28CalendarOutline fill="var(--accent)" />}
-          subheader="Если помощь нужна ежемесячно"
-          onClick={props.go}
-          data-to="regular"
-        />
-      </Group>
-    </Group>
+		<div className="main-title">
+      {cover == null ?
+        <File 
+          className="hed" 
+          before=
+              {<Icon32PictureOutline 
+                  className="Icon-56"
+              />} 
+          controlSize="xl" 
+          mode="outline"
+          onChange={e => {
+              const file = e.target.files[0]
+              if(file.type.substring(0,5)==="image"){ //Type check
+                  const reader = new FileReader();
+                  reader.readAsDataURL(file);
+                  reader.onloadend = () => {
+                      setCover(reader.result)
+                  };
+              }
+              }}
+          >
+          {""}
+        </File>:
+        <div>
+          <img className="main-img" src={cover} alt="Cover"/>
+          <Icon24DismissOverlay className="icon-24" onClick={() => setCover(null)}/>
+        </div>
+      }
+      <div className="main-text">
+        <FormLayout>
+        <Input 
+            top="Название" 
+            onChange = {e => setPodcastName(e.target.value)}
+            value = {podcastName}
+            placeholder="Введите название подкаста" />
+        </FormLayout>
+      </div>
+      </div>
+      <div className="decsription-main">
+          <FormLayout>
+              <Textarea 
+              grow={false}
+              top="Описание подкаста" 
+              onChange = {e => setDescription(e.target.value)}
+              value = {description}
+              />
+          </FormLayout>
+      </div>
+    
+
+
+
+
+      
+
+
+
+
+
+
+     
+    
+    <FixedLayout vertical="bottom">
+      <Div>
+        <Button size="xl" stretched onClick={props.go} data-to="extra">
+          Далее
+        </Button>
+      </Div>
+    </FixedLayout>
   </Panel>
-);
+)};
 
 Addition.propTypes = {
   id: PropTypes.string.isRequired,

@@ -25,7 +25,7 @@ const Regular = (props) => (
   <Panel id={props.id}>
     <PanelHeader
       left={
-        <PanelHeaderButton onClick={props.go} data-to="type">
+        <PanelHeaderButton onClick={props.go} data-to="addition">
           {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
         </PanelHeaderButton>
       }

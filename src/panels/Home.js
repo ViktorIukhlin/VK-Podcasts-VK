@@ -13,7 +13,7 @@ const Home = ({ id, go }) => (
       stretched
       icon={  <Icon28AddCircleOutline style={{ color: '#99A2AD' }} width={56} height={56}/>  }
       header={ 'Добавьте первый подкаст' }
-      action={  <Button size="m" onClick={go} data-to="type"> Добавить подкаст </Button>  }
+      action={  <Button size="m" onClick={go} data-to="addition"> Добавить подкаст </Button>  }
       > 
       Добавляйте, редактируйте и делитесь
       <br />

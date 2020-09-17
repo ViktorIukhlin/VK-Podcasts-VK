@@ -4,7 +4,7 @@ import View from "@vkontakte/vkui/dist/components/View/View";
 import "@vkontakte/vkui/dist/vkui.css";
 
 import Home from "./panels/Home";
-import Type from "./panels/Type";
+import Addition from "./panels/Addition";
 import Target from "./panels/Target";
 import Regular from "./panels/Regular";
 import Extra from "./panels/Extra";
@@ -43,7 +43,7 @@ const App = () => {
   return (
     <View activePanel={activePanel}>
       <Home id="home" go={go} />
-      <Type id="type" go={go} />
+      <Addition id="addition" go={go} />
       <Target id="target" go={go} />
       <Regular id="regular" go={go} goForward={goForward}/>
       <Extra id="extra" go={go} goForward={goForward}/>

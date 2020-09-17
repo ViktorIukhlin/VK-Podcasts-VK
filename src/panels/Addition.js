@@ -12,7 +12,7 @@ import Icon28CalendarOutline from "@vkontakte/icons/dist/28/calendar_outline";
 
 const osName = platform();
 
-const Type = (props) => (
+const Addition = (props) => (
   <Panel id={props.id}>
     <PanelHeader
       left={
@@ -21,7 +21,7 @@ const Type = (props) => (
         </PanelHeaderButton>
       }
     >
-      Тип сбора
+      Новый подкаст
     </PanelHeader>
     <Group
       style={{
@@ -53,9 +53,9 @@ const Type = (props) => (
   </Panel>
 );
 
-Type.propTypes = {
+Addition.propTypes = {
   id: PropTypes.string.isRequired,
   go: PropTypes.func.isRequired,
 };
 
-export default Type;
+export default Addition;

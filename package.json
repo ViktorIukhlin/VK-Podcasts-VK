@@ -1,8 +1,8 @@
 {
-  "name": "VkVezdekodWebApp",
+  "name": "VK-Podcasts-VK",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://viktoriukhlin.github.io/VkVezdekodWebApp/",
+  "homepage": "https://viktoriukhlin.github.io/VK-Podcasts-VK/",
   "main": "index.js",
   "scripts": {
     "start": "cross-env PORT=10888 HTTPS=true react-scripts start",

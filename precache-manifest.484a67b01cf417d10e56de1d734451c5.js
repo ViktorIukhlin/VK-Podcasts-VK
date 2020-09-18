@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6bfe66f0e89b41aeaf54f6aeaf61bff9",
+    "revision": "a44e81e42efad4210afaf150fc139dd4",
     "url": "/VK-Podcasts-VK/index.html"
   },
   {
-    "revision": "d6b7ce9ae660e9aeb80f",
+    "revision": "5b7d91c2f73b349e535a",
     "url": "/VK-Podcasts-VK/static/css/2.09e62520.chunk.css"
   },
   {
-    "revision": "c52f6cb9bb0985f3de21",
+    "revision": "05685b7b81c2c315f550",
     "url": "/VK-Podcasts-VK/static/css/main.8c44ca8b.chunk.css"
   },
   {
-    "revision": "d6b7ce9ae660e9aeb80f",
-    "url": "/VK-Podcasts-VK/static/js/2.298dc009.chunk.js"
+    "revision": "5b7d91c2f73b349e535a",
+    "url": "/VK-Podcasts-VK/static/js/2.63fa6ce5.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/VK-Podcasts-VK/static/js/2.298dc009.chunk.js.LICENSE.txt"
+    "url": "/VK-Podcasts-VK/static/js/2.63fa6ce5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c52f6cb9bb0985f3de21",
-    "url": "/VK-Podcasts-VK/static/js/main.6f8f24be.chunk.js"
+    "revision": "05685b7b81c2c315f550",
+    "url": "/VK-Podcasts-VK/static/js/main.8be01acf.chunk.js"
   },
   {
     "revision": "38f72337ceb813257b2e",

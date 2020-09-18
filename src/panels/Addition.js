@@ -11,6 +11,7 @@ const Addition = (props) => {
   const [podcastName, setPodcastName] = useState(""); 
   const [description, setDescription] = useState(""); 
   const nextEnabled = cover && podcastName?.length > 0 &&description?.length > 0;
+  
   return (
     <Panel id={props.id}>
       <PanelHeader

@@ -8,7 +8,7 @@ const osName = platform();
 const Edit = (props) => (
   <Panel id={props.id}>
     <PanelHeader
-      left={<PanelHeaderButton onClick={props.go} data-to="addition">
+      left={<PanelHeaderButton onClick={props.go} data-to="addition" >
         {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
       </PanelHeaderButton>}
     >

@@ -7,11 +7,10 @@ const osName = platform();
 
 const Addition = (props) => {
   const [podcastUrl, setPodcastUrl] = useState(null);
-  const [cover, setCover] = useState(null); 
+  const [cover, setCover] = useState(null);
   const [podcastName, setPodcastName] = useState(""); 
   const [description, setDescription] = useState(""); 
   const nextEnabled = cover && podcastName?.length > 0 &&description?.length > 0;
-
   return (
     <Panel id={props.id}>
       <PanelHeader

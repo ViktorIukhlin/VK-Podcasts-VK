@@ -32,7 +32,7 @@ const App = () => {
   return (
     <View activePanel={activePanel}>
       <Home id="home" go={go} />
-      <Addition id="addition" go={go} state={state}/>
+      <Addition id="addition" go={go} state={state} />
       <AdditionMenu id="additionMenu" go={go} />
       <Edit id="edit" go={go} />
       <Preview id="preview" go={go} />

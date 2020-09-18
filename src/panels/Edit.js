@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Card, Div, platform, IOS, Panel, PanelHeader, PanelHeaderButton, Group, Cell, Header, Gallery} from "@vkontakte/vkui";
-import {Icon28ChevronBack, Icon24Back, Icon28AddCircleOutline} from "@vkontakte/icons";
+import { Icon28ChevronBack, Icon24Back, Icon28AddCircleOutline } from "@vkontakte/icons";
 
 const osName = platform();
 

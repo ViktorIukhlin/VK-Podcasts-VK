@@ -73,7 +73,7 @@ const Addition = (props) => {
           </Cell>
         </Group>
 
-        <Button size="xl" disabled={!nextEnabled} style={{ marginBottom: 12 }} onClick={props.go} data-to="extra">
+        <Button size="xl" disabled={!nextEnabled} style={{ marginBottom: 12 }} onClick={props.go} data-to="preview">
           Далее
       </Button>
 

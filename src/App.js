@@ -6,9 +6,10 @@ import "@vkontakte/vkui/dist/vkui.css";
 import Home from "./panels/Home";
 import Addition from "./panels/Addition";
 import Edit from "./panels/Edit";
-import Target from "./panels/Target";
+import Preview from "./panels/Preview";
+
 import Regular from "./panels/Regular";
-import Extra from "./panels/Extra";
+import Extra from "./panels/Preview";
 import Snippet from "./panels/Snippet";
 
 const App = () => {
@@ -46,8 +47,8 @@ const App = () => {
       <Home id="home" go={go} />
       <Addition id="addition" go={go} />
       <Edit id="edit" go={go} />
+      <Preview id="preview" go={go} />
 
-      <Target id="target" go={go} />
       <Regular id="regular" go={go} goForward={goForward}/>
       <Extra id="extra" go={go} goForward={goForward}/>
       <Snippet id="snippet" go={go}/>

@@ -19,7 +19,7 @@ import Icon24Back from "@vkontakte/icons/dist/24/back";
 
 const osName = platform();
 
-const Extra = (props) => (
+const Preview = (props) => (
   <Panel id={props.id}>
     <PanelHeader
       left={
@@ -31,24 +31,7 @@ const Extra = (props) => (
       Дополнительно
     </PanelHeader>
 
-    <FormLayout style={{ paddingBottom: 60 }}>
-      <Select defaultValue="default" top="Автор">
-        <option value="default">Матвей Правосудов</option>
-        <option>Батон Батонович</option>
-      </Select>
-      <Group top="Сбор завершится">
-        <Radio name="radio" value="asap">
-          Когда соберём сумму
-        </Radio>
-        <Radio name="radio" value="date" defaultChecked>
-          В определенную дату
-        </Radio>
-      </Group>
-      <Select top="Дата окончания" placeholder="Выберите дату">
-        <option>20 сентября</option>
-        <option>Без указания даты окончания</option>
-      </Select>
-    </FormLayout>
+
 
     <FixedLayout vertical="bottom">
       <Div>
@@ -60,9 +43,9 @@ const Extra = (props) => (
   </Panel>
 );
 
-Extra.propTypes = {
+Preview.propTypes = {
   id: PropTypes.string.isRequired,
   go: PropTypes.func.isRequired,
 };
 
-export default Extra;
+export default Preview;

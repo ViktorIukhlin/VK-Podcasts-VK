@@ -4,5 +4,11 @@ let state = {
     non: false,
     include: false,
     tizer: false,
-    typeOf: all
+    typeOf: 'all'
 }
+
+export const updateName = (newText) => {
+    state.name = newText;
+}
+
+export default state;

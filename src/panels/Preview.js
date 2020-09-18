@@ -60,14 +60,11 @@ const Preview = (props) => (
         </div>
       </Div>
     </Group>
-
-    <FixedLayout vertical="bottom">
-      <Div>
-        <Button size="xl" onClick={props.go} data-to="completed" stretched>
-          Опубликовать подкаст
-        </Button>
-      </Div>
-    </FixedLayout>
+    <Div>
+      <Button size="xl" onClick={props.go} data-to="completed" stretched>
+        Опубликовать подкаст
+      </Button>
+    </Div>
   </Panel>
 );
 

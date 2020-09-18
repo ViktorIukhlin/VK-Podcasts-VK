@@ -10,6 +10,8 @@ import Edit from "./panels/Edit";
 import Preview from "./panels/Preview";
 import Completed from "./panels/Completed";
 
+import state from "./panels/state";
+
 const App = () => {
   const [activePanel, setActivePanel] = useState("home");
 
@@ -30,7 +32,7 @@ const App = () => {
   return (
     <View activePanel={activePanel}>
       <Home id="home" go={go} />
-      <Addition id="addition" go={go} />
+      <Addition id="addition" go={go} state={state}/>
       <AdditionMenu id="additionMenu" go={go} />
       <Edit id="edit" go={go} />
       <Preview id="preview" go={go} />

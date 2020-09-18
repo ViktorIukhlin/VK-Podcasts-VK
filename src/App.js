@@ -5,15 +5,12 @@ import "@vkontakte/vkui/dist/vkui.css";
 
 import Home from "./panels/Home";
 import Addition from "./panels/Addition";
+import AdditionMenu from "./panels/AdditionMenu";
 import Edit from "./panels/Edit";
 import Preview from "./panels/Preview";
-
-import Regular from "./panels/Regular";
-import Extra from "./panels/Preview";
-import Snippet from "./panels/Snippet";
+import Completed from "./panels/Completed";
 
 const App = () => {
-	const [history, setHistory] = useState(["home"]);
   const [activePanel, setActivePanel] = useState("home");
 
   useEffect(() => {
@@ -26,18 +23,6 @@ const App = () => {
     });
   }, []);
 
-  const goForward = (e) => {
-		const newActivePanel = e.currentTarget.dataset.to;
-		const newHistory = [...history];
-		newHistory.push(newActivePanel);
-		if (newActivePanel === "home") {
-			bridge.send("VKWebAppEnableSwipeBack");
-		}
-		window.history.pushState({ panel: newActivePanel }, newActivePanel);
-		setHistory(newHistory);
-		setActivePanel(newActivePanel);
-  };
-
   const go = (e) => {
     setActivePanel(e.currentTarget.dataset.to);
   };
@@ -46,12 +31,10 @@ const App = () => {
     <View activePanel={activePanel}>
       <Home id="home" go={go} />
       <Addition id="addition" go={go} />
+      <AdditionMenu id="additionMenu" go={go} />
       <Edit id="edit" go={go} />
       <Preview id="preview" go={go} />
-
-      <Regular id="regular" go={go} goForward={goForward}/>
-      <Extra id="extra" go={go} goForward={goForward}/>
-      <Snippet id="snippet" go={go}/>
+      <Completed id="completed" go={go} />
     </View>
   );
 };

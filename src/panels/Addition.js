@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { platform, IOS, Avatar, Button, Cell, Group, Text, Checkbox, Separator, FormLayout, Div, PanelHeader, Panel, PanelHeaderButton, File, Input, Textarea, Card, Placeholder } from "@vkontakte/vkui";
 import {Icon20PodcastOutline, Icon56GalleryOutline, Icon24Back, Icon28ChevronBack} from "@vkontakte/icons";
-import './Addition.sass';
+import './styleCont/Addition.sass';
 const osName = platform();
 
 const Addition = (props) => {
@@ -68,7 +68,7 @@ const Addition = (props) => {
         <Checkbox>Трейлер подкаста</Checkbox>
 
         <Group description="При публикации записи с эпизодом, он становится доступным для всех пользователей">
-          <Cell description="Всем пользователям" expandable onClick={props.go} data-to="podcast-privacy">
+          <Cell description="Всем пользователям" expandable onClick={props.go} data-to="additionMenu">
             Кому доступен данный подкаст
           </Cell>
         </Group>

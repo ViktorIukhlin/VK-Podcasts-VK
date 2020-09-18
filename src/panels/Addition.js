@@ -1,100 +1,86 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
-import { platform, IOS, Banner, FixedLayout, Button, FormLayout, Div, PanelHeader, Panel, PanelHeaderButton, File, Input, Textarea, Card, Placeholder } from "@vkontakte/vkui";
-import Icon28ChevronBack from "@vkontakte/icons/dist/28/chevron_back";
-import Icon24Back from "@vkontakte/icons/dist/24/back";
-import Icon32PictureOutline from '@vkontakte/icons/dist/32/picture_outline';
-import Icon24DismissOverlay from '@vkontakte/icons/dist/24/dismiss_overlay';
-import './Addition.css';
+import { platform, IOS, Avatar, Button, Cell, Group, Text, Checkbox, Separator, FormLayout, Div, PanelHeader, Panel, PanelHeaderButton, File, Input, Textarea, Card, Placeholder } from "@vkontakte/vkui";
+import {Icon20PodcastOutline, Icon56GalleryOutline, Icon24Back, Icon28ChevronBack} from "@vkontakte/icons";
+import './Addition.sass';
 const osName = platform();
 
 const Addition = (props) => {
-  const [cover, setCover] = useState(null);
-  const [podcastName, setPodcastName] = useState("");
-  const [description, setDescription] = useState("");
+  const [podcastUrl, setPodcastUrl] = useState(null);
+  const [cover, setCover] = useState(null); 
+  const [podcastName, setPodcastName] = useState(""); 
+  const [description, setDescription] = useState(""); 
+  const nextEnabled = cover && podcastName?.length > 0 &&description?.length > 0;
 
-  return(
-  <Panel id={props.id}>
-    <PanelHeader
-      left={
-        <PanelHeaderButton onClick={props.go} data-to="home">
-          {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
-        </PanelHeaderButton>
-      }
-    >
-      Новый подкаст
+  return (
+    <Panel id={props.id}>
+      <PanelHeader
+        left={
+          <PanelHeaderButton onClick={props.go} data-to="home">
+            {osName === IOS ? <Icon28ChevronBack /> : <Icon24Back />}
+          </PanelHeaderButton>
+        }
+      >
+        Новый подкаст
     </PanelHeader>
-		<div className="main-title">
-      {cover == null ?
-        <File 
-          className="hed" 
-          before=
-              {<Icon32PictureOutline 
-                  className="Icon-56"
-              />} 
-          controlSize="xl" 
-          mode="outline"
-          onChange={e => {
-              const file = e.target.files[0]
-              if(file.type.substring(0,5)==="image"){ //Type check
-                  const reader = new FileReader();
-                  reader.readAsDataURL(file);
-                  reader.onloadend = () => {
-                      setCover(reader.result)
-                  };
-              }
-              }}
-          >
-          {""}
-        </File>:
-        <div>
-          <img className="main-img" src={cover} alt="Cover"/>
-          <Icon24DismissOverlay className="icon-24" onClick={() => setCover(null)}/>
-        </div>
-      }
-      <div className="main-text">
-        <FormLayout>
-        <Input 
-            top="Название" 
-            onChange = {e => setPodcastName(e.target.value)}
-            value = {podcastName}
-            placeholder="Введите название подкаста" />
-        </FormLayout>
-      </div>
-      </div>
-      <div className="decsription-main">
-          <FormLayout>
-              <Textarea 
-              grow={false}
-              top="Описание подкаста" 
-              onChange = {e => setDescription(e.target.value)}
-              value = {description}
-              />
+
+      <FormLayout>
+        <Div style={{ display: 'flex' }}>
+          {podcastUrl ? <Avatar mode="app" size={72} src={podcastUrl} /> :
+            <Card style={{ width: 72, height: 72 }}>
+              <label htmlFor="file-input">
+                <Icon56GalleryOutline width={32} height={32} fill="#3F8AE0" style={{ margin: 20 }} />
+              </label>
+              <File id="file-input" accept="image/*" style={{ display: 'none' }} onChange={(event) => {
+                setPodcastUrl(URL.createObjectURL(event.target.files[0]))
+              }} />
+            </Card>
+          }
+          <FormLayout id="title-podcast" style={{ width: 'calc(100% - 2*12px)' }}>
+            <Input top="Название" placeholder="Введите название подкаста" onChange={(e) => setPodcastName(e.target.value)} />
           </FormLayout>
-      </div>
-    
+        </Div>
 
+        <Textarea top="Описание подкаста" onChange={(e) => setDescription(e.target.value)} />
+        {cover ?
+          <div style={{ paddingTop: 10 }}>
+            <Group
+              description="Вы можете добавить таймкоды и скорректировать подкаст в режиме редактирования">
+              <Cell before={
+                <Icon20PodcastOutline width={24} height={24} />
+              } asideContent={<Text>59:16</Text>}>{cover.name}</Cell>
+            </Group>
+            <Button size="xl" mode="outline" style={{ marginBottom: 22 }} onClick={props.go} data-to="edit-podcast">Редактировать аудиозапись</Button>
+          </div>
+          : <Placeholder
+            header="Загрузите Ваш подкаст"
+            action={<File size="m" mode="outline" accept=".mp3" onChange={(event) => {
+              setCover(event.target.files[0]);
+            }}>Загрузить файл</File>}
+          >
+            Выберите готовый аудиофайл из вашего телефона и добавьте его
+        </Placeholder>
+        }
 
+        <Separator />
+        <Checkbox>Ненормативный контент</Checkbox>
+        <Checkbox>Исключить эпизод из экспорта</Checkbox>
+        <Checkbox>Трейлер подкаста</Checkbox>
 
+        <Group description="При публикации записи с эпизодом, он становится доступным для всех пользователей">
+          <Cell description="Всем пользователям" expandable onClick={props.go} data-to="podcast-privacy">
+            Кому доступен данный подкаст
+          </Cell>
+        </Group>
 
-      
-
-
-
-
-
-
-     
-    
-    <FixedLayout vertical="bottom">
-      <Div>
-        <Button size="xl" stretched onClick={props.go} data-to="extra">
+        <Button size="xl" disabled={!nextEnabled} style={{ marginBottom: 12 }} onClick={props.go} data-to="extra">
           Далее
-        </Button>
-      </Div>
-    </FixedLayout>
-  </Panel>
-)};
+      </Button>
+
+      </FormLayout>
+    </Panel>
+  )
+};
 
 Addition.propTypes = {
   id: PropTypes.string.isRequired,

@@ -15,8 +15,8 @@ const Edit = (props) => (
       Редактирование
 	</PanelHeader>
     <Div>
-      <Card style={{ height: 182, display: 'flex', flexDirection: 'column' }}>
-          <div style={{ height: 182, backgroundImage: 'url(./zagl.jpg)' }}/>
+      <Card style={{ display: 'flex', flexDirection: 'column' }}>
+        <div style={{ height: 182, backgroundImage: `url(${require("./zag.svg")})`, backgroundRepeat: 'no-repeat' }}/>
       </Card>
     </Div>
     <Group

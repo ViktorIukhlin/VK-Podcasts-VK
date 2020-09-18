@@ -50,7 +50,7 @@ const Addition = (props) => {
                 <Icon20PodcastOutline width={24} height={24} />
               } asideContent={<Text>59:16</Text>}>{cover.name}</Cell>
             </Group>
-            <Button size="xl" mode="outline" style={{ marginBottom: 22 }} onClick={props.go} data-to="edit-podcast">Редактировать аудиозапись</Button>
+            <Button size="xl" mode="outline" style={{ marginBottom: 22 }} onClick={props.go} data-to="edit">Редактировать аудиозапись</Button>
           </div>
           : <Placeholder
             header="Загрузите Ваш подкаст"
